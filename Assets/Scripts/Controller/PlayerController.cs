@@ -40,7 +40,7 @@ namespace ColorFullBall.Controllers
 
                         break;
                     case TouchPhase.Ended:
-
+                        _rigidbody.velocity = Vector3.zero;
                         break;
                     case TouchPhase.Canceled:
 
