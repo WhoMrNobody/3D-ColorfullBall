@@ -9,9 +9,10 @@ namespace ColorFullBall.Controllers
         [SerializeField] float _speedModifier;
 
         Touch _touch;
-        void Start()
+        Rigidbody _rigidbody;
+        void Awake()
         {
-
+            _rigidbody = GetComponent<Rigidbody>();
         }
 
         void Update()
@@ -31,9 +32,9 @@ namespace ColorFullBall.Controllers
 
                         break;
                     case TouchPhase.Moved:
-                        transform.position = new Vector3(transform.position.x + _touch.deltaPosition.x * _speedModifier * Time.deltaTime, 
+                        _rigidbody.velocity = new Vector3(_touch.deltaPosition.x * _speedModifier * Time.deltaTime, 
                                                             transform.position.y, 
-                                                            transform.position.z + _touch.deltaPosition.y * _speedModifier * Time.deltaTime); 
+                                                            _touch.deltaPosition.y * _speedModifier * Time.deltaTime); 
                         break;
                     case TouchPhase.Stationary:
 
