@@ -86,6 +86,14 @@ namespace ColorFullBall.Controllers
             _bottomBound.position += new Vector3(0f, 0f, _constantSpeed * Time.deltaTime);
             
         }
+
+        void OnCollisionEnter(Collision hit)
+        {
+            if (hit.gameObject.CompareTag("Obstacle"))
+            {
+                Destroy(this.gameObject);
+            }
+        }
     }
 
 }
