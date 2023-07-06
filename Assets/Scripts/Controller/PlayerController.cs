@@ -15,6 +15,7 @@ namespace ColorFullBall.Controllers
         [SerializeField] GameObject _mainCamera;
         [SerializeField] Transform _topBottom;
         [SerializeField] Transform _bottomBound;
+        [SerializeField] GameObject[] _fractures;
 
         Touch _touch;
         Rigidbody _rigidbody;
@@ -78,7 +79,6 @@ namespace ColorFullBall.Controllers
 
         void StartGame()
         {
-            GameManager.Instance.GameStatusValue = GameManager.GameStatus.Started;
 
             transform.position += new Vector3(0f, 0f, _constantSpeed * Time.deltaTime);
             _mainCamera.transform.position += new Vector3(0f, 0f, _constantSpeed * Time.deltaTime);
@@ -91,7 +91,15 @@ namespace ColorFullBall.Controllers
         {
             if (hit.gameObject.CompareTag("Obstacle"))
             {
-                Destroy(this.gameObject);
+                gameObject.transform.GetChild(0).transform.gameObject.SetActive(false);
+
+                foreach (GameObject fractures in _fractures)
+                {
+                    fractures.GetComponent<SphereCollider>().enabled = true;
+                    fractures.GetComponent<Rigidbody>().isKinematic = false;
+
+                    GameManager.Instance.GameStatusValue = GameManager.GameStatus.Failed;
+                }
             }
         }
     }
