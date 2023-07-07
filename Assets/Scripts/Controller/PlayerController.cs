@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using ColorFullBall.Managers;
 using ColorFullBall.Movements;
+using ColorFullBall.UI;
 
 namespace ColorFullBall.Controllers
 {
@@ -13,6 +14,7 @@ namespace ColorFullBall.Controllers
         [Range(1, 20)]
         [SerializeField] float _constantSpeed;
         [SerializeField] CameraShake _cameraShake;
+        [SerializeField] UIManager _uiManager;
         [SerializeField] GameObject _mainCamera;
         [SerializeField] Transform _topBottom;
         [SerializeField] Transform _bottomBound;
@@ -93,7 +95,9 @@ namespace ColorFullBall.Controllers
             if (hit.gameObject.CompareTag("Obstacle"))
             {
                 gameObject.transform.GetChild(0).transform.gameObject.SetActive(false);
+
                 _cameraShake.CallCameraShake();
+                _uiManager.StartCoroutine("FlashDeathEffect");
 
                 foreach (GameObject fractures in _fractures)
                 {
