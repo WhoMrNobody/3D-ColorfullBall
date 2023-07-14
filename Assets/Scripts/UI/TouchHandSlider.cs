@@ -4,15 +4,10 @@ using UnityEngine;
 
 public class TouchHandSlider : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
+    [SerializeField] Vector3 _startPos, _lastPos;
+    [SerializeField] float _sliderSpeed;
     void Update()
     {
-        
+        gameObject.GetComponent<Transform>().localPosition = Vector3.Lerp(_startPos, _lastPos, Mathf.PingPong(Time.time * _sliderSpeed, 1f));
     }
 }
