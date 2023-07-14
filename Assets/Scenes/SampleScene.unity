@@ -1190,6 +1190,10 @@ MonoBehaviour:
   _informationButton: {fileID: 257476822}
   _infoGameObject: {fileID: 1540792963}
   _layoutAnimator: {fileID: 79691352}
+  _shopBtn: {fileID: 603697348}
+  _noAdsBtn: {fileID: 1399033025}
+  _tapToText: {fileID: 528343539}
+  _tapHand: {fileID: 18784355}
 --- !u!4 &206904594
 Transform:
   m_ObjectHideFlags: 0
@@ -8153,7 +8157,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 26.8, y: -14}
+  m_AnchoredPosition: {x: 26.8, y: 0}
   m_SizeDelta: {x: 71, y: 72}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1227673806
@@ -10212,7 +10216,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 35.33667, y: -90}
+  m_AnchoredPosition: {x: 35.33667, y: 0}
   m_SizeDelta: {x: 56.6703, y: 237.39}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1668580917
@@ -16258,7 +16262,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 26.8, y: -14}
+  m_AnchoredPosition: {x: 26.8, y: 0}
   m_SizeDelta: {x: 71, y: 72}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1895709198

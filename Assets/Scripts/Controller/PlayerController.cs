@@ -82,7 +82,7 @@ namespace ColorFullBall.Controllers
 
         void StartGame()
         {
-
+            _uiManager.DisableAllUIElements();
             transform.position += new Vector3(0f, 0f, _constantSpeed * Time.deltaTime);
             _mainCamera.transform.position += new Vector3(0f, 0f, _constantSpeed * Time.deltaTime);
             _topBottom.position += new Vector3(0f, 0f, _constantSpeed * Time.deltaTime);

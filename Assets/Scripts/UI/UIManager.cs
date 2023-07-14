@@ -14,6 +14,9 @@ namespace ColorFullBall.UI
         [SerializeField] GameObject _iapButton;
         [SerializeField] GameObject _informationButton, _infoGameObject;
         [SerializeField] Animator _layoutAnimator;
+        [SerializeField] GameObject _shopBtn, _noAdsBtn;
+        [SerializeField] GameObject _tapToText, _tapHand;
+
 
 
         int _alphaValue = 0;
@@ -30,6 +33,23 @@ namespace ColorFullBall.UI
                 PlayerPrefs.SetInt("Vibration", 1);
             }
 
+        }
+
+        public void DisableAllUIElements()
+        {
+            _settingOpen.SetActive(false);
+            _settingClose.SetActive(false);
+            _muteOnButton.SetActive(false);
+            _muteOffButton.SetActive(false);
+            _vibrationOnButton.SetActive(false);
+            _vibrationOffButton.SetActive(false);
+            _iapButton.SetActive(false);
+            _informationButton.SetActive(false);
+            _shopBtn.SetActive(false);
+            _tapToText.SetActive(false);
+            _noAdsBtn.SetActive(false);
+            _tapHand.SetActive(false);
+            _tapHand.SetActive(false);
         }
         public IEnumerator FlashDeathEffect()
         {   
