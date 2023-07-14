@@ -66,7 +66,9 @@ namespace ColorFullBall.Controllers
                         break;
 
                     case TouchPhase.Ended:
+
                         _rigidbody.velocity = Vector3.zero;
+
                         break;
 
                     case TouchPhase.Canceled:
@@ -99,14 +101,25 @@ namespace ColorFullBall.Controllers
                 _cameraShake.CallCameraShake();
                 _uiManager.StartCoroutine("FlashDeathEffect");
 
+                GameManager.Instance.GameStatusValue = GameManager.GameStatus.Failed;
+
                 foreach (GameObject fractures in _fractures)
                 {
                     fractures.GetComponent<SphereCollider>().enabled = true;
                     fractures.GetComponent<Rigidbody>().isKinematic = false;
-
-                    GameManager.Instance.GameStatusValue = GameManager.GameStatus.Failed;
                 }
+
+                StartCoroutine(TimeScaleControl());
             }
+        }
+
+        IEnumerator TimeScaleControl()
+        {   
+            yield return new WaitForSecondsRealtime(0.3f);
+            Time.timeScale = 0.4f;
+            yield return new WaitForSecondsRealtime(0.7f);
+            _rigidbody.velocity = Vector3.zero;
+            _uiManager.RestartBtnActive();
         }
     }
 

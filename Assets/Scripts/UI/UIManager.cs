@@ -1,7 +1,9 @@
+using ColorFullBall.Managers;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 namespace ColorFullBall.UI
 {
@@ -16,7 +18,7 @@ namespace ColorFullBall.UI
         [SerializeField] Animator _layoutAnimator;
         [SerializeField] GameObject _shopBtn, _noAdsBtn;
         [SerializeField] GameObject _tapToText, _tapHand;
-
+        [SerializeField] GameObject _restartBtn;
 
 
         int _alphaValue = 0;
@@ -50,6 +52,18 @@ namespace ColorFullBall.UI
             _noAdsBtn.SetActive(false);
             _tapHand.SetActive(false);
             _tapHand.SetActive(false);
+        }
+
+        public void RestartBtnActive()
+        {
+            _restartBtn.SetActive(true);
+        }
+
+        public void RestartBtn()
+        {
+            GameManager.Instance.GameStatusValue = GameManager.GameStatus.None;
+            Time.timeScale = 1;
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
         public IEnumerator FlashDeathEffect()
         {   
