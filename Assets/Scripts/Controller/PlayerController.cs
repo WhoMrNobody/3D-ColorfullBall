@@ -24,6 +24,7 @@ namespace ColorFullBall.Controllers
 
         Touch _touch;
         Rigidbody _rigidbody;
+        int _coins;
         void Awake()
         {
             _rigidbody = GetComponent<Rigidbody>();
@@ -115,6 +116,17 @@ namespace ColorFullBall.Controllers
                 }
 
                 StartCoroutine(TimeScaleControl());
+            }
+        }
+
+        void OnTriggerEnter(Collider other)
+        {
+            if (other.gameObject.CompareTag("FinishLine"))
+            {
+                GameManager.Instance.GameStatusValue = GameManager.GameStatus.Finished;
+                CoinManager.Instance.CoinCalculartor(_coins);
+                _uiManager.CoinTextUpdate();
+                _uiManager.ActivateFinishScreen();
             }
         }
 

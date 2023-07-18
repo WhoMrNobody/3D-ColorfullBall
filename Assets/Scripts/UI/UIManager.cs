@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 using UnityEngine.SceneManagement;
 
 namespace ColorFullBall.UI
@@ -19,11 +20,12 @@ namespace ColorFullBall.UI
         [SerializeField] GameObject _shopBtn, _noAdsBtn;
         [SerializeField] GameObject _tapToText, _tapHand;
         [SerializeField] GameObject _restartBtn;
-
+        [SerializeField] TMP_Text _coinText;
+        [SerializeField] GameObject _finishScreen;
 
         int _alphaValue = 0;
 
-        private void Start()
+        void Start()
         {
             if (!PlayerPrefs.HasKey("Sound"))
             {
@@ -35,6 +37,7 @@ namespace ColorFullBall.UI
                 PlayerPrefs.SetInt("Vibration", 1);
             }
 
+            CoinTextUpdate();
         }
 
         public void DisableAllUIElements()
@@ -163,6 +166,15 @@ namespace ColorFullBall.UI
             PlayerPrefs.SetInt("Vibration", 1);
         }
 
+        public void CoinTextUpdate()
+        {
+            _coinText.text = CoinManager.Instance.COIN_KEY;
+        }
+
+        public void ActivateFinishScreen()
+        {
+            _finishScreen.SetActive(true);
+        }
     }
 }
 
