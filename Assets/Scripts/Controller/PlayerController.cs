@@ -1,9 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using ColorFullBall.Managers;
 using ColorFullBall.Movements;
 using ColorFullBall.UI;
+
 
 namespace ColorFullBall.Controllers
 {
@@ -35,15 +37,18 @@ namespace ColorFullBall.Controllers
         }
 
         void HandleTransform()
-        {   
-            if(GameManager.Instance.GameStatusValue == GameManager.GameStatus.Started)
+        {
+            if (GameManager.Instance.GameStatusValue == GameManager.GameStatus.Started)
             {
                 StartGame();
             }
 
-            if(Input.touchCount > 0)
+            if (Input.touchCount > 0)
             {
+                if (EventSystem.current.IsPointerOverGameObject(_touch.fingerId)) { return; }
+
                 _touch = Input.GetTouch(0);
+
                 GameManager.Instance.GameStatusValue = GameManager.GameStatus.Started;
 
                 switch (_touch.phase)

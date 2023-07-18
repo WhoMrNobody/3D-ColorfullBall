@@ -10,7 +10,7 @@ namespace ColorFullBall.UI
     public class UIManager : MonoBehaviour
     {
         [SerializeField] Image _whiteImage;
-        [SerializeField] GameObject _settingOpen, _settingClose;
+        [SerializeField] GameObject _settingOpen, _settingClose, _layoutBackground;
         [SerializeField] GameObject _muteOnButton, _muteOffButton;
         [SerializeField] GameObject _vibrationOnButton, _vibrationOffButton;
         [SerializeField] GameObject _iapButton;
