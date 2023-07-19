@@ -21,7 +21,7 @@ namespace ColorFullBall.UI
         [SerializeField] GameObject _tapToText, _tapHand;
         [SerializeField] GameObject _restartBtn;
         [SerializeField] TMP_Text _coinText;
-        [SerializeField] GameObject _finishScreen;
+        [SerializeField] GameObject[] _finishScreenObjects;
 
         int _alphaValue = 0;
 
@@ -168,13 +168,28 @@ namespace ColorFullBall.UI
 
         public void CoinTextUpdate()
         {
-            _coinText.text = CoinManager.Instance.COIN_KEY;
+            _coinText.text = CoinManager.Instance.COIN_KEY.ToString();
         }
 
         public void ActivateFinishScreen()
         {
-            _finishScreen.SetActive(true);
+            StartCoroutine(FinishScreen());
         }
+
+        IEnumerator FinishScreen()
+        {
+
+            for (int i = 0; i < _finishScreenObjects.Length; i++)
+            {
+                yield return new WaitForSecondsRealtime(1f);
+
+                _finishScreenObjects[i].gameObject.SetActive(true);
+
+                yield return new WaitForSecondsRealtime(1f);
+            }
+        }
+
+
     }
 }
 
