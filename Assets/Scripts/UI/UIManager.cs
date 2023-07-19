@@ -5,12 +5,13 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using UnityEngine.SceneManagement;
+using ColorFullBall.Controllers;
 
 namespace ColorFullBall.UI
 {
     public class UIManager : MonoBehaviour
     {
-        [SerializeField] Image _whiteImage;
+        [SerializeField] Image _whiteImage, _progressionForeImage;
         [SerializeField] GameObject _settingOpen, _settingClose, _layoutBackground;
         [SerializeField] GameObject _muteOnButton, _muteOffButton;
         [SerializeField] GameObject _vibrationOnButton, _vibrationOffButton;
@@ -22,6 +23,8 @@ namespace ColorFullBall.UI
         [SerializeField] GameObject _restartBtn;
         [SerializeField] TMP_Text _coinText;
         [SerializeField] GameObject[] _finishScreenObjects;
+        [SerializeField] Transform _player, _finishLine;
+
 
         int _alphaValue = 0;
 
@@ -38,6 +41,12 @@ namespace ColorFullBall.UI
             }
 
             CoinTextUpdate();
+
+        }
+
+        void Update()
+        {
+            FillProgressionForeImage();
         }
 
         public void DisableAllUIElements()
@@ -189,6 +198,10 @@ namespace ColorFullBall.UI
             }
         }
 
+        void FillProgressionForeImage()
+        {
+            _progressionForeImage.fillAmount = ((_player.position.z * 100) / (_finishLine.position.z)) / 100; 
+        }
 
     }
 }

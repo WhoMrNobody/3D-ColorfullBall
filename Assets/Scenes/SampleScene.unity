@@ -1470,6 +1470,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _whiteImage: {fileID: 904414188}
+  _progressionForeImage: {fileID: 925760031}
   _settingOpen: {fileID: 1227673804}
   _settingClose: {fileID: 1895709196}
   _layoutBackground: {fileID: 1663560743}
@@ -1495,6 +1496,8 @@ MonoBehaviour:
   - {fileID: 446875132}
   - {fileID: 872623462}
   - {fileID: 298323759}
+  _player: {fileID: 1034677463}
+  _finishLine: {fileID: 729040442}
 --- !u!4 &206904594
 Transform:
   m_ObjectHideFlags: 0
@@ -8358,8 +8361,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -1.6095, y: 0.23480034}
-  m_SizeDelta: {x: 161.1237, y: 11.3329}
+  m_AnchoredPosition: {x: -1.2625, y: 0.23480034}
+  m_SizeDelta: {x: 161.8176, y: 11.3329}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &925760031
 MonoBehaviour:
@@ -8381,12 +8384,12 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
-  m_Type: 0
+  m_Sprite: {fileID: 21300000, guid: 5958af52d88f7124999bd82314a9710c, type: 3}
+  m_Type: 3
   m_PreserveAspect: 0
   m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
+  m_FillMethod: 0
+  m_FillAmount: 0
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
