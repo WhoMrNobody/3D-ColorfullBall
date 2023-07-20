@@ -203,6 +203,13 @@ namespace ColorFullBall.UI
             _progressionForeImage.fillAmount = ((_player.position.z * 100) / (_finishLine.position.z)) / 100; 
         }
 
+        public void NextLevelBtnn()
+        {
+            GameManager.Instance.GameStatusValue = GameManager.GameStatus.None;
+            Time.timeScale = 1;
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        }
+
     }
 }
 
