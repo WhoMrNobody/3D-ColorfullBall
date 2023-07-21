@@ -127,6 +127,7 @@ namespace ColorFullBall.Controllers
                 CoinManager.Instance.CoinCalculartor(_coins);
                 _uiManager.CoinTextUpdate();
                 _uiManager.ActivateFinishScreen();
+                PlayerPrefs.SetInt(LevelManager.Instance.LEVEL_KEY, PlayerPrefs.GetInt(LevelManager.Instance.LEVEL_KEY + 1));
             }
         }
 
