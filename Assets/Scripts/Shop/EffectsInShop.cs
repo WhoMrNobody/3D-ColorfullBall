@@ -22,20 +22,21 @@ namespace ColorFullBall.UI
                 PlayerPrefs.SetInt("ActivatedEffect", 0);
             }
 
-            if(PlayerPrefs.GetInt("ActivatedEffect") == 2)
+        }
+        void Start()
+        {
+           coin = PlayerPrefs.GetInt(CoinManager.Instance.COIN_KEY);
+
+            if (PlayerPrefs.GetInt("ActivatedEffect") == 2)
             {
                 EffectActivationID(2);
             }
-            else if(PlayerPrefs.GetInt("ActivatedEffect") == 3)
+            else if (PlayerPrefs.GetInt("ActivatedEffect") == 3)
             {
                 EffectActivationID(3);
             }
 
             Debug.Log(PlayerPrefs.GetInt("ActivatedEffect"));
-        }
-        void Start()
-        {
-           coin = PlayerPrefs.GetInt(CoinManager.Instance.COIN_KEY);
         }
         public void EffectActivationID(int index)
         {
