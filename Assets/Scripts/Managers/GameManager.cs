@@ -11,12 +11,16 @@ namespace ColorFullBall.Managers
         [HideInInspector] public GameStatus GameStatusValue;
         void Awake()
         {
-            Instance = this;
 
             if(Instance != null)
             {
-                Destroy(Instance);
+                Destroy(gameObject);
             }
+            else
+            {
+                Instance = this;
+            }
+
             GameStatusValue = GameStatus.None;
         }
         public enum GameStatus

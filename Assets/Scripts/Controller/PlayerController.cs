@@ -24,10 +24,15 @@ namespace ColorFullBall.Controllers
 
         Touch _touch;
         Rigidbody _rigidbody;
-        int _coins;
+        int _coins = 100;
         void Awake()
         {
             _rigidbody = GetComponent<Rigidbody>();
+        }
+
+        private void Start()
+        {
+            CoinManager.Instance.CoinCalculartor(100);
         }
 
         void Update()

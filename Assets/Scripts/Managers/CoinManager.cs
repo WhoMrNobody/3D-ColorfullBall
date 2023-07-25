@@ -8,7 +8,7 @@ namespace ColorFullBall.Managers
     {
         public static CoinManager Instance;
 
-        static string Coin_Key="Coin";
+        static string Coin_Key="0";
         public string COIN_KEY => Coin_Key;
         void Awake()
         {
@@ -21,6 +21,11 @@ namespace ColorFullBall.Managers
                 Destroy(Instance);
             }
 
+        }
+
+        private void Start()
+        {
+            Debug.Log(Instance.COIN_KEY);
         }
 
         public void CoinCalculartor(int coinAmount)
