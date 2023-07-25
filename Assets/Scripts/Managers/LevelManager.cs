@@ -31,6 +31,8 @@ namespace ColorFullBall.Managers
             {
                 PlayerPrefs.SetInt(LEVEL_KEY, 1);
             }
+
+            LevelControl();
         }
 
         public void LevelControl()

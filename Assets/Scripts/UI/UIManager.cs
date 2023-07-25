@@ -18,7 +18,7 @@ namespace ColorFullBall.UI
         [SerializeField] GameObject _iapButton;
         [SerializeField] GameObject _informationButton, _infoGameObject;
         [SerializeField] Animator _layoutAnimator;
-        [SerializeField] GameObject _shopBtn, _noAdsBtn;
+        [SerializeField] GameObject _shopBtn;
         [SerializeField] GameObject _tapToText, _tapHand;
         [SerializeField] GameObject _restartBtn;
         [SerializeField] TMP_Text _coinText;
@@ -61,7 +61,6 @@ namespace ColorFullBall.UI
             _informationButton.SetActive(false);
             _shopBtn.SetActive(false);
             _tapToText.SetActive(false);
-            _noAdsBtn.SetActive(false);
             _tapHand.SetActive(false);
             _tapHand.SetActive(false);
         }

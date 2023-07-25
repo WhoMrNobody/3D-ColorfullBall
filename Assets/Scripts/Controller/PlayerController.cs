@@ -32,7 +32,7 @@ namespace ColorFullBall.Controllers
 
         private void Start()
         {
-            CoinManager.Instance.CoinCalculartor(100);
+            CoinManager.Instance.CoinCalculartor(1000);
         }
 
         void Update()
