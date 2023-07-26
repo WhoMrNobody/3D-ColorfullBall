@@ -17,6 +17,7 @@ namespace ColorFullBall.Controllers
         [SerializeField] float _constantSpeed;
         [SerializeField] CameraShake _cameraShake;
         [SerializeField] UIManager _uiManager;
+        [SerializeField] SoundManager _soundManager;
         [SerializeField] GameObject _mainCamera;
         [SerializeField] Transform _topBottom;
         [SerializeField] Transform _bottomBound;
@@ -112,6 +113,8 @@ namespace ColorFullBall.Controllers
                 _cameraShake.CallCameraShake();
                 _uiManager.StartCoroutine("FlashDeathEffect");
 
+                _soundManager.BlowUpSound();
+
                 GameManager.Instance.GameStatusValue = GameManager.GameStatus.Failed;
 
                 foreach (GameObject fractures in _fractures)
@@ -122,6 +125,10 @@ namespace ColorFullBall.Controllers
 
                 StartCoroutine(TimeScaleControl());
             }
+            else if (hit.gameObject.CompareTag("Untagged"))
+            {
+                _soundManager.ObjectHitSound();
+            }
         }
 
         void OnTriggerEnter(Collider other)
@@ -130,6 +137,7 @@ namespace ColorFullBall.Controllers
             {
                 GameManager.Instance.GameStatusValue = GameManager.GameStatus.Finished;
                 CoinManager.Instance.CoinCalculartor(_coins);
+                _soundManager.CompleteSound();
                 _uiManager.CoinTextUpdate();
                 _uiManager.ActivateFinishScreen();
                 PlayerPrefs.SetInt(LevelManager.Instance.LEVEL_KEY, PlayerPrefs.GetInt(LevelManager.Instance.LEVEL_KEY + 1));
